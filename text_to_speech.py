@@ -1,13 +1,15 @@
 import requests
+import json
 
 def text_to_speech(text, api_key):
-    url = "https://api.sarvam.ai/text-to-speech"
+    url = "https://api.elevenlabs.io/v1/text-to-speech/JBFqnCBsd6RMkjVDRZzb?output_format=mp3_44100_128"
     headers = {
-        "api-key": api_key,
+        "xi-api-key": api_key,
         "Content-Type": "application/json"
     }
     data = {
-        "text": text
+        "text": text,
+        "model_id": "vQr4tFgr8biGsPoCuPNl"
     }
     
     try:
@@ -21,6 +23,20 @@ def text_to_speech(text, api_key):
         print("An error occurred:", e)
 
 if __name__ == "__main__":
-    sarvam_api_key = "270d52d7-1f85-4cd3-8cf7-a7beac13882a"
-    sample_text = "Hello, this is a test of the Sarvam text-to-speech API."
-    text_to_speech(sample_text, sarvam_api_key)
+    eleven_labs_api_key = "sk_e82df97a20042d63e0c246687accdd22ae77e44e30c1970a"
+    
+    try:
+        # Load text from prompts.txt
+        with open("/Users/v/pyhack/promtps.txt", "r") as file:
+            prompts_data = json.load(file)
+        
+        # Extract sample text from the prompts
+        sample_text = prompts_data["conversation_flow"]["opening_greetings"][0]
+        
+        text_to_speech(sample_text, eleven_labs_api_key)
+    except FileNotFoundError:
+        print("Error: The file 'prompts.txt' was not found. Please ensure it exists in the correct directory.")
+    except json.JSONDecodeError:
+        print("Error: Failed to decode JSON from 'prompts.txt'. Please check the file format.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
