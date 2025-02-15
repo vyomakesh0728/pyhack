@@ -23,7 +23,7 @@ def text_to_speech(text, api_key):
         print("An error occurred:", e)
 
 if __name__ == "__main__":
-    eleven_labs_api_key = "sk_e82df97a20042d63e0c246687accdd22ae77e44e30c1970a"
+    eleven_labs_api_key = "api_key"
     
     try:
         # Load text from prompts.txt
