@@ -16,4 +16,6 @@ dependencies = [
     "certifi>=2024.1.5",
     "mcp[cli]>=1.2.1",
     "httpx>=0.28.1",
+    "fastapi>=0.115.8",
+    "crewai>=0.95.0",
 ]
