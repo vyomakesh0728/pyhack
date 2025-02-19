@@ -1,7 +1,7 @@
 import requests
 import json
 import base64
-import scipy.io.wavfile
+from scipy.io import wavfile
 import numpy as np
 
 def text_to_speech(text, api_key):
@@ -31,7 +31,7 @@ def text_to_speech(text, api_key):
             audio_data = np.frombuffer(audio_content, dtype=np.int16)
             
             # Write to WAV file using scipy
-            scipy.io.wavfile.write("output_audio.wav", 44100, audio_data)
+            wavfile.write("output_audio.wav", 44100, audio_data)
             print("Audio content successfully written to output_audio.wav")
         else:
             # Enhanced error handling for missing audio content

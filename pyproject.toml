@@ -19,4 +19,7 @@ dependencies = [
     "fastapi>=0.115.8",
     "crewai>=0.95.0",
     "scipy>=1.15.2",
+    "boto3>=1.36.22",
+    "twilio>=9.4.5",
+    "motor>=3.7.0",
 ]
