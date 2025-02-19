@@ -176,7 +176,7 @@ async def run(server_addr: str, device: int, stop_event: asyncio.Event):
             await receive_task
 
 
-async def main():
+async def SpeechToText():
     args = get_args()
 
     server_addr = args.server_addr

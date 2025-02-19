@@ -26,7 +26,7 @@ twilio_client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 polly_client = boto3.client('polly')
 
 # NAVANA AI setup
-stt_client = SpeechToText(api_key="your_navana_key")
+stt_client = SpeechToText()
 
 class TextToSpeechRequest(BaseModel):
     text: str
